@@ -1,3 +1,4 @@
+// src/screens/DataScreen.tsx
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -14,6 +15,10 @@ const DataScreen = () => {
 
   const handleItemClick = (item: any) => {
     navigation.navigate('Detail', { postId: item.id }); // Navigate to DetailScreen with postId as parameter
+  };
+
+  const handleAddPress = () => {
+    navigation.navigate('AddData'); // Navigate to AddDataScreen
   };
 
   if (loading) {
@@ -44,6 +49,9 @@ const DataScreen = () => {
           </TouchableOpacity>
         )}
       />
+      <TouchableOpacity style={styles.fab} onPress={handleAddPress}>
+        <Text style={styles.fabText}>+</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -67,6 +75,21 @@ const styles = StyleSheet.create({
   center: {
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  fab: {
+    position: 'absolute',
+    bottom: 20,
+    right: 20,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: '#6200ea',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  fabText: {
+    fontSize: 30,
+    color: 'white',
   },
 });
 

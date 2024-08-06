@@ -8,7 +8,11 @@ const Stack = createStackNavigator();
 const AuthNavigator = () => {
   return (
     <Stack.Navigator initialRouteName="Login">
-      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen
+        name="Login"
+        component={LoginScreen}
+        options={{ headerShown: false }} // Menyembunyikan header
+      />
       {/* Tambahkan screen lain yang terkait dengan otentikasi di sini */}
     </Stack.Navigator>
   );
